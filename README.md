@@ -1,4 +1,4 @@
-# Rewarded Interests’s On-page Advertising Token Access API
+# Rewarded Interests On-page Advertising Token Access API
 
 **Version** 1.0
 
@@ -48,7 +48,7 @@ interface RewardedInterestBrowserPartnerApi {
   /**
    * Retrieves the current advertising token.
    * Note: Successive calls to this method may return different tokens.
-   * @usage Call this method exactly one per page. DO NOT STORE THIS TOKEN.
+   * We recommend calling this just once per page visit and reusing the value over time while the visitor remains on the page.
    * @returns string.
    */
   getAdvertisingToken(): Promise<string>;
@@ -65,7 +65,7 @@ A. By the time the `window` `load` event is fired
 
 Q. In what case will the `window.__riApi` object not be available
 
-A. If the user is not using our plugin _or_ has not yet accepted our terms of service.
+A. When our browser extension is not available, when the user has not yet accepted our TOS, or when a user has paused availability of their ID.
 
 ---
 
