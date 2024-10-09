@@ -1,4 +1,4 @@
-# Rewarded Interests On-page Advertising Token Access API
+# Rewarded Interests On-page Identity Token Access API
 
 **Version** 1.0
 
@@ -10,11 +10,11 @@
 
 ### Summary / Background
 
-This document describes and provides usage instructions for Rewarded Interest’s Javascript API that provides advertising identifier tokens to on-page parties on behalf of consumers.
+This document describes and provides usage instructions for Rewarded Interest’s Javascript API that provides Identity tokens to on-page parties on behalf of consumers.
 
 ### Glossary of Terms
 
-**Rewarded Interest Advertising Token**: an opaque string which can be resolved into a Rewarded Interest Advertising ID.
+**Rewarded Interest Identity Token**: an opaque string which can be resolved into a Rewarded Interest Advertising ID.
 
 **Rewarded Interest Advertising ID aka CMAID**: A durable, cross-site, cross-device advertising identifier. This ID remains consistent across visits and across a Rewarded Interest user’s various enrolled devices, unless they reset or pause it.
 
@@ -22,12 +22,12 @@ This document describes and provides usage instructions for Rewarded Interest’
 
 ### Usage
 
-Suppose you are implementing a header-bidding ID module. You wish to fetch the Rewarded Interest Advertising Token to supply it into the bid-stream to allow DSP to bid with knowledge of the identity. Here’s what you’d do:
+Suppose you are implementing a header-bidding ID module. You wish to fetch the Rewarded Interest Identity Token to supply it into the bid-stream to allow DSP to bid with knowledge of the identity. Here’s what you’d do:
 
 1. Retrieve the token from our API
 
 ```typescript
-const riToken: string = await window.__riApi.getAdvertisingToken();
+const riToken: string = await window.__riApi.getIdentityToken();
 ```
 
 2. Use the token for the remainder of the page session, i.e. until the user leaves the current page
@@ -46,12 +46,12 @@ interface RewardedInterestBrowserPartnerApi {
   getApiVersion(): string;
 
   /**
-   * Retrieves the current advertising token.
+   * Retrieves the current identity token.
    * Note: Successive calls to this method may return different tokens.
    * We recommend calling this just once per page visit and reusing the value over time while the visitor remains on the page.
    * @returns string.
    */
-  getAdvertisingToken(): Promise<string>;
+  getIdentityToken(): Promise<string>;
 }
 ```
 
