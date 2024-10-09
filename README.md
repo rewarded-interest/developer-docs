@@ -1,4 +1,4 @@
-# Rewarded Interests On-page Identity Token Access API
+# Rewarded Interest's On-page Identity Token Access API
 
 **Version** 1.0
 
